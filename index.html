@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Của Tôi</title>
+    <title>Nguyễn Minh Hiếu</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -35,15 +35,8 @@
             width: 420px;
             flex-shrink: 0; /* Ngăn không cho cột này bị co lại */
 
-            /* --- THIẾT LẬP ẢNH NỀN CHO CỘT TRÁI --- */
-            /* Thay link ảnh bên dưới bằng ảnh nền bạn muốn (ví dụ: bầu trời sao) */
-            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-
-            /* Lớp phủ màu tối lên ảnh nền để chữ dễ đọc hơn */
-            background-color: rgba(20, 20, 30, 0.85);
-            background-blend-mode: overlay;
+            /* --- THIẾT LẬP NỀN GRADIENT ĐẸP MẮT --- */
+            background: linear-gradient(135deg, #131314 0%, #333135 100%);
 
             color: #ffffff; /* Màu chữ trắng */
             padding: 60px 30px;
@@ -119,14 +112,14 @@
             margin-right: 10px;
             text-align: center;
             opacity: 1;
-            color: #ffd700;
+            color: #ff6b35; /* Cam đỏ */
             font-size: 1rem;
         }
 
         .university-name {
             font-weight: 700;
             font-size: 1.05rem;
-            color: #ffd700;
+            color: #ff6b35; /* Cam đỏ */
             display: block;
             margin-bottom: 8px;
         }
@@ -167,11 +160,12 @@
         /* Tiêu đề section */
         .section-heading {
             font-size: 1.8rem;
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
             margin-bottom: 30px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 3px solid #ff6b35; /* Cam đỏ nổi bật */
             display: inline-block;
+            font-weight: 700;
         }
 
         /* --- HỆ THỐNG GRID CHO DỰ ÁN (Giống bài trước) --- */
@@ -190,11 +184,51 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
+            position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Badge cho dự án */
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-badge i {
+            font-size: 0.7rem;
+        }
+
+        .project-badge.personal {
+            color: #10b981;
+            opacity: 0.85;
+        }
+
+        .project-badge.personal i {
+            color: #10b981;
+        }
+
+        .project-badge.company {
+            color: #3498db;
+        }
+
+        .project-badge.company i {
+            color: #3498db;
         }
 
         /* Vùng chứa ảnh/GIF */
@@ -224,13 +258,15 @@
         .project-details h3 {
             font-size: 1.3rem;
             margin-bottom: 12px;
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
+            font-weight: 600;
         }
 
         .project-details p {
-            color: #666;
+            color: #4a4a4a; /* Xám đậm dễ đọc */
             font-size: 0.95rem;
             margin-bottom: 20px;
+            line-height: 1.7;
         }
 
         /* Danh sách công nghệ (Tags) */
@@ -244,19 +280,20 @@
         }
 
         .tech-tags li {
-            background-color: #e3f2fd;
-            color: #3498db;
-            padding: 5px 10px;
+            background-color: #fff5f0; /* Cam nhạt */
+            color: #ff6b35; /* Cam đỏ */
+            padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid #ffe0d6;
         }
-        
+
         .intro-text {
             font-size: 1.1rem;
             max-width: 800px;
             margin-bottom: 50px;
-            color: #555;
+            color: #4a4a4a; /* Xám đậm */
         }
 
         .info-section {
@@ -264,27 +301,28 @@
             padding: 25px 30px;
             border-radius: 10px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid #ff6b35; /* Cam đỏ */
         }
 
         .info-section h3 {
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
             font-size: 1.3rem;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 700;
         }
 
         .info-section h3 i {
-            color: #3498db;
+            color: #ff6b35; /* Icon cam đỏ */
         }
 
         .info-item {
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .info-item:last-child {
@@ -294,13 +332,14 @@
         }
 
         .info-item h4 {
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
             font-size: 1.1rem;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .info-item .company {
-            color: #666;
+            color: #4a4a4a; /* Xám đậm */
             font-size: 0.95rem;
             margin-bottom: 5px;
         }
@@ -309,6 +348,94 @@
             color: #999;
             font-size: 0.9rem;
             font-style: italic;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        /* Bỏ đường thẳng nối - chỉ giữ lại các chấm */
+        .timeline::before {
+            display: none; /* Ẩn đường thẳng */
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 0;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            /* Căn chỉnh chính xác */
+            left: -33px;
+            top: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #9ba1a7;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #9ba1a7;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .timeline-item.current .timeline-dot {
+            background: #ff6b35;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px #ff6b35;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 3px #ff6b35, 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            50% {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 3px #ff6b35, 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+        }
+
+        .timeline-content {
+            padding-left: 5px;
+        }
+
+        .timeline-content h4 {
+            color: #1a1a1d; /* Màu tối đậm */
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        .timeline-item.current .timeline-content h4 {
+            color: #ff6b35; /* Cam đỏ cho vị trí hiện tại */
+            font-weight: 700;
+        }
+
+        .timeline-content .company {
+            color: #4a4a4a; /* Xám đậm */
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content .date {
+            color: #888; /* Xám nhạt hơn */
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .timeline-item.current .timeline-content .date {
+            color: #ff6b35; /* Cam đỏ cho vị trí hiện tại */
+            font-weight: 600;
         }
 
         /* --- SKILLS GRID --- */
@@ -320,37 +447,39 @@
         }
 
         .skill-item {
-            background: #f8f9fa;
+            background: #fff;
             padding: 20px;
             border-radius: 10px;
-            border-left: 4px solid #3498db;
+            border-left: 5px solid #ff6b35; /* Cam đỏ */
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .skill-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left-color: #667eea;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.15);
+            border-left-color: #ff8c5a;
         }
 
         .skill-item i {
             font-size: 2rem;
-            color: #3498db;
+            color: #ff6b35; /* Icon cam đỏ */
             margin-bottom: 10px;
             display: block;
         }
 
         .skill-item strong {
             display: block;
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
             font-size: 1.1rem;
             margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .skill-item p {
-            color: #666;
+            color: #4a4a4a; /* Xám đậm */
             font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
         }
 
@@ -359,19 +488,21 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 420px; /* Bắt đầu sau sidebar */
+            width: calc(100% - 420px); /* Chỉ chiếm phần bên phải */
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0);
             z-index: 9999;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            animation: fadeIn 0.3s ease;
+            transition: background-color 0.6s ease; /* Chậm hơn: 0.6s */
+            overflow-y: auto;
         }
 
         .modal-overlay.active {
             display: flex;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
         .modal-content {
@@ -382,21 +513,42 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            animation: slideUp 0.3s ease;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             /* Ẩn thanh trượt */
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* IE and Edge */
+            /* Animation mượt mà - chậm hơn và mượt hơn */
+            opacity: 0;
+            transform: scale(0.85) translateY(50px);
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); /* Chậm hơn: 0.7s, hiệu ứng bounce mượt */
+        }
+
+        .modal-overlay.active .modal-content {
+            opacity: 1;
+            transform: scale(1) translateY(0);
         }
 
         .modal-content::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera */
         }
 
+        /* ========================================
+           🎨 CHỈNH MÀU POPUP TẠI ĐÂY
+           ========================================
+           Thay đổi 3 màu trong gradient:
+           - Màu 1 (0%): #ffb89d (cam nhạt nhất)
+           - Màu 2 (50%): #ffa589 (cam trung bình)
+           - Màu 3 (100%): #ff9575 (cam đậm nhất)
+
+           Ví dụ màu khác:
+           - Xanh dương nhạt: #a8d8ea, #7fc8e8, #5ab9ea
+           - Xanh lá nhạt: #b8e6d5, #95dac1, #72cead
+           - Tím nhạt: #d4b5f7, #c49ff5, #b489f3
+        ======================================== */
         .modal-header {
             position: sticky;
             top: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b35 0%, #ff6b35 50%, #ff6b35 100%);
             color: #fff;
             padding: 30px;
             border-radius: 15px 15px 0 0;
@@ -454,11 +606,12 @@
         }
 
         .modal-section h3 {
-            color: #2c3e50;
+            color: #1a1a1d; /* Màu tối đậm */
             font-size: 1.5rem;
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 3px solid #ff6b35; /* Cam đỏ */
+            font-weight: 700;
         }
 
         .modal-section ul {
@@ -470,7 +623,7 @@
             padding: 10px 0;
             padding-left: 25px;
             position: relative;
-            color: #555;
+            color: #4a4a4a; /* Xám đậm */
             line-height: 1.8;
         }
 
@@ -478,32 +631,28 @@
             content: "▸";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #ff6b35; /* Cam đỏ */
             font-weight: bold;
         }
 
-        /* Bỏ mũi tên cho phần tech tags */
-        .modal-tech-tags li {
-            padding: 5px 10px !important;
-            padding-left: 10px !important;
-        }
-
+        /* Tech tags trong modal */
         .modal-tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 15px;
+            padding-left: 0 !important;
         }
 
         .modal-tech-tags li {
-            background-color: #e3f2fd;
-            color: #3498db;
-            padding: 5px 10px;
+            background-color: #fff5f0; /* Cam nhạt */
+            color: #ff6b35; /* Cam đỏ */
+            padding: 5px 12px !important;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 500;
-            list-style: none;
-            border: none;
+            font-weight: 600;
+            list-style: none !important;
+            border: 1px solid #ffe0d6;
             transition: all 0.3s ease;
         }
 
@@ -512,8 +661,9 @@
             transform: translateY(-2px);
         }
 
-        .modal-tech-tags li:before {
-            content: none;
+        .modal-tech-tags li::before {
+            content: none !important;
+            display: none !important;
         }
 
         .project-card {
@@ -558,21 +708,7 @@
             scrollbar-color: #667eea #f1f1f1;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
 
-        @keyframes slideUp {
-            from { 
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to { 
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
 
         /* --- RESPONSIVE (Cho điện thoại) --- */
         @media (max-width: 900px) {
@@ -646,15 +782,23 @@
 
             <div class="info-section">
                 <h3><i class="fas fa-briefcase"></i> Kinh Nghiệm Làm Việc</h3>
-                <div class="info-item">
-                    <h4>Sinh Viên Nghiên Cứu</h4>
-                    <div class="company">WSR Lab</div>
-                    <div class="date">1/2023 - 4/2024</div>
-                </div>
-                <div class="info-item">
-                    <h4>Kỹ Sư Robotic</h4>
-                    <div class="company">Công ty Cổ phần PhenikaaX</div>
-                    <div class="date">8/2024 - nay</div>
+                <div class="timeline">
+                    <div class="timeline-item current">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Kỹ Sư Robotic</h4>
+                            <div class="company">Công ty Cổ phần PhenikaaX</div>
+                            <div class="date">8/2024 - nay</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Sinh Viên Nghiên Cứu</h4>
+                            <div class="company">WSR Lab</div>
+                            <div class="date">1/2023 - 4/2024</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -708,6 +852,10 @@
             <div class="project-grid">
 
                 <article class="project-card" onclick="openModal('charging')">
+                    <div class="project-badge personal">
+                        <i class="fas fa-circle"></i>
+                        cá nhân
+                    </div>
                     <div class="project-media">
                         <img src="https://via.placeholder.com/400x250?text=Ảnh+Dự+Án+1" alt="Demo Dự Án 1">
                     </div>
@@ -723,6 +871,10 @@
                 </article>
 
                 <article class="project-card" onclick="openModal('fleet')">
+                    <div class="project-badge company">
+                        <i class="fas fa-circle"></i>
+                        công ty
+                    </div>
                     <div class="project-media">
                         <img src="images/rmf-web+for+website.gif" alt="Demo Dự Án 2">
                     </div>
@@ -741,6 +893,10 @@
                 </article>
 
                  <article class="project-card" onclick="openModal('service')">
+                    <div class="project-badge company">
+                        <i class="fas fa-circle"></i>
+                        công ty
+                    </div>
                     <div class="project-media">
                         <img src="https://via.placeholder.com/400x250?text=Project+Screenshot" alt="Demo Dự Án 3">
                     </div>
@@ -755,6 +911,10 @@
                 </article>
 
                 <article class="project-card" onclick="openModal('indus')">
+                    <div class="project-badge company">
+                        <i class="fas fa-circle"></i>
+                        công ty
+                    </div>
                     <div class="project-media">
                         <img src="https://via.placeholder.com/400x250?text=Dự+Án+Mới" alt="Dự án mới">
                     </div>
@@ -769,6 +929,10 @@
                 </article>
 
                 <article class="project-card" onclick="openModal('patrol')">
+                    <div class="project-badge personal">
+                        <i class="fas fa-circle"></i>
+                        cá nhân
+                    </div>
                     <div class="project-media">
                         <img src="https://via.placeholder.com/400x250?text=Dự+Án+Mới" alt="Dự án mới">
                     </div>
