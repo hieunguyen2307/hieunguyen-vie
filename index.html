@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Của Tôi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- THIẾT LẬP CƠ BẢN --- */
+        :root {
+            --primary-color: #2c3e50; /* Màu chữ chính */
+            --accent-color: #3498db;  /* Màu nhấn (link, button) */
+            --bg-color: #f4f7f6;      /* Màu nền */
+            --card-bg: #ffffff;       /* Màu nền thẻ dự án */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER / GIỚI THIỆU --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- PHẦN GRID DỰ ÁN (QUAN TRỌNG) --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Lưới Grid Responsive: Tự động chia cột */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; /* Khoảng cách giữa các ô */
+        }
+
+        /* Thẻ dự án */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Phần chứa ảnh/GIF */
+        .project-image {
+            width: 100%;
+            height: 200px; /* Chiều cao cố định cho ảnh */
+            background-color: #ddd; /* Màu nền giữ chỗ khi chưa có ảnh */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo ảnh che kín khung mà không bị méo */
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05); /* Phóng to nhẹ ảnh khi di chuột */
+        }
+
+        /* Phần nội dung chữ */
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tags span {
+            background: #eee;
+            color: #555;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .btn-view {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+            border: 1px solid var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .btn-view:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Xin chào, tôi là [Tên Của Bạn]</h1>
+        <p>Tôi là một [Nghề nghiệp/Chức danh]. Đây là nơi tôi lưu trữ các dự án cá nhân, thử nghiệm và những điều thú vị tôi đã làm.</p>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Dự Án Nổi Bật</h2>
+        
+        <div class="project-grid">
+            
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Anh+Du+An+1" alt="Dự án 1">
+                </div>
+                <div class="project-info">
+                    <h3>Tên Dự Án 1</h3>
+                    <p>Mô tả ngắn gọn về dự án này. Nó làm được gì? Bạn đã sử dụng công nghệ nào?</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>AI/ML</span>
+                    </div>
+                    <a href="#" class="btn-view">Xem Chi Tiết</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Video+Gif+Demo" alt="Dự án 2">
+                </div>
+                <div class="project-info">
+                    <h3>Tên Dự Án 2</h3>
+                    <p>Bạn có thể thay ảnh trên bằng một file .gif để hình ảnh động trực quan hơn.</p>
+                    <div class="tags">
+                        <span>HTML/CSS</span>
+                        <span>Javascript</span>
+                    </div>
+                    <a href="#" class="btn-view">Xem Chi Tiết</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Project+3" alt="Dự án 3">
+                </div>
+                <div class="project-info">
+                    <h3>Tên Dự Án 3</h3>
+                    <p>Mô tả dự án... Grid này sẽ tự động xuống dòng khi màn hình nhỏ lại (Responsive).</p>
+                    <div class="tags">
+                        <span>React</span>
+                        <span>NodeJS</span>
+                    </div>
+                    <a href="#" class="btn-view">Xem Chi Tiết</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Placeholder" alt="Dự án 4">
+                </div>
+                <div class="project-info">
+                    <h3>Tên Dự Án 4</h3>
+                    <p>Chỗ này để trống để bạn điền thông tin vào.</p>
+                    <div class="tags">
+                        <span>Design</span>
+                        <span>Figma</span>
+                    </div>
+                    <a href="#" class="btn-view">Xem Chi Tiết</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 [Tên Của Bạn]. All rights reserved.</p>
+        <p>Design inspired by HTML5 UP & Raj Shinde Portfolio Style</p>
+    </footer>
+
+</body>
+</html>
