@@ -71,12 +71,16 @@
             <section class="fade-in-up">
                 <h2 class="section-heading">Giới Thiệu</h2>
                 <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 40px; max-width: 800px;">
-                    Kỹ sư Robotic với hơn 2 năm kinh nghiệm chuyên sâu trong thiết kế, phát triển và triển khai các hệ thống robot tự động phức tạp sử dụng <strong>ROS2</strong>.
-                    Có thành tích triển khai thành công hệ thống điều phối đa robot (Fleet Management) trong môi trường sản xuất thực tế,
+                    Kỹ sư Robotic với hơn 2 năm kinh nghiệm chuyên sâu trong thiết kế, phát triển và triển khai các hệ
+                    thống robot tự động phức tạp sử dụng <strong>ROS2</strong>.
+                    Có thành tích triển khai thành công hệ thống điều phối đa robot (Fleet Management) trong môi trường
+                    sản xuất thực tế,
                     tích hợp các giải pháp SLAM, Navigation và Computer Vision để tối ưu hóa hiệu suất hoạt động.
-                    Thành thạo <strong>C++</strong> và <strong>Python</strong> trong phát triển các module điều khiển thời gian thực,
+                    Thành thạo <strong>C++</strong> và <strong>Python</strong> trong phát triển các module điều khiển
+                    thời gian thực,
                     xử lý cảm biến đa nguồn và tối ưu hóa thuật toán.
-                    Có kinh nghiệm làm việc với các tiêu chuẩn công nghiệp (VDA5050, ISO Safety) và công nghệ DevOps (Docker, CI/CD)
+                    Có kinh nghiệm làm việc với các tiêu chuẩn công nghiệp (VDA5050, ISO Safety) và công nghệ DevOps
+                    (Docker, CI/CD)
                     để đảm bảo tính ổn định và khả năng mở rộng của hệ thống.
                 </p>
             </section>
@@ -143,6 +147,12 @@
                             <p>Động học, động lực học, Nav2, Behavior Tree.</p>
                         </div>
                         <div class="skill-item">
+                            <i class="fas fa-route"></i>
+                            <strong>Nav2</strong>
+                            <p>Chuyên sâu Behavior Tree, Custom Controller & Planner. Tối ưu hóa di chuyển trong môi
+                                trường hẹp.</p>
+                        </div>
+                        <div class="skill-item">
                             <i class="fab fa-docker"></i>
                             <strong>DevOps</strong>
                             <p>Docker, Swarm, Compose, Git, CI/CD.</p>
@@ -160,27 +170,27 @@
 
             <!-- PROJECT CAROUSEL -->
             <div class="project-carousel fade-in-up delay-300" id="projectCarousel">
+                <div id="slideCounter" class="slide-counter">1 / 4</div>
                 <button class="carousel-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
 
+                <!-- Slide 1 -->
                 <div class="carousel-track-container">
                     <ul class="carousel-track" id="track">
 
-                        <!-- Slide 1 -->
                         <li class="carousel-slide">
-                            <div class="project-slide-content" onclick="openModal('charging')" style="cursor: pointer;">
+                            <div class="project-slide-content" onclick="openModal('indus')" style="cursor: pointer;">
                                 <div class="project-slide-media skeleton-loading">
-                                    <img src="https://loremflickr.com/800/500/robot,lab" alt="Charging Robot"
+                                    <img src="assets/heavy_load_amr.jpg" alt="Industrial Robot"
                                         onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
                                 </div>
                                 <div class="project-slide-info">
-                                    <h3>Robot Về Trạm Sạc Tự Động</h3>
-                                    <p>Hệ thống điều khiển robot tự động tìm đường về trạm sạc khi pin yếu sử dụng
-                                        camera và xử lý ảnh. Tích hợp thuật toán PID để điều khiển robot di chuyển chính
-                                        xác.</p>
+                                    <h3>Robot AMR Chở Hàng Trong Nhà Máy</h3>
+                                    <p>Robot vận chuyển tự hành (AGV/AMR) trong môi trường công nghiệp. Hệ thống đảm bảo
+                                        an toàn tuyệt đối với cảm biến Lidar và tích hợp MES.</p>
                                     <ul class="tech-tags">
-                                        <li>C++</li>
-                                        <li>PID</li>
-                                        <li>OpenCV</li>
+                                        <li>ROS2</li>
+                                        <li>Lidar Safety</li>
+                                        <li>Modbus</li>
                                     </ul>
                                 </div>
                             </div>
@@ -188,9 +198,29 @@
 
                         <!-- Slide 2 -->
                         <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('service')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="assets/medical_delivery_robot.jpg" alt="Service Robot"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Robot Giao Hàng Trong Bệnh Viện</h3>
+                                    <p>Robot phục vụ tự động trong nhà hàng, khách sạn với khả năng di chuyển và tương
+                                        tác. Tích hợp cảm biến tránh vật cản và lập bản đồ SLAM.</p>
+                                    <ul class="tech-tags">
+                                        <li>ROS2</li>
+                                        <li>SLAM</li>
+                                        <li>Touch UI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 3 -->
+                        <li class="carousel-slide">
                             <div class="project-slide-content" onclick="openModal('fleet')" style="cursor: pointer;">
                                 <div class="project-slide-media skeleton-loading">
-                                    <img src="images/rmf-web+for+website.gif" alt="Fleet Management"
+                                    <img src="assets/mf_0.gif" alt="Fleet Management"
                                         onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
                                 </div>
                                 <div class="project-slide-info">
@@ -206,55 +236,20 @@
                             </div>
                         </li>
 
-                        <!-- Slide 3 -->
-                        <li class="carousel-slide">
-                            <div class="project-slide-content" onclick="openModal('service')" style="cursor: pointer;">
-                                <div class="project-slide-media skeleton-loading">
-                                    <img src="https://loremflickr.com/800/500/robot,waiter" alt="Service Robot"
-                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
-                                </div>
-                                <div class="project-slide-info">
-                                    <h3>Robot Dịch Vụ</h3>
-                                    <p>Robot phục vụ tự động trong nhà hàng, khách sạn với khả năng di chuyển và tương
-                                        tác. Tích hợp cảm biến tránh vật cản và lập bản đồ SLAM.</p>
-                                    <ul class="tech-tags">
-                                        <li>ROS2</li>
-                                        <li>SLAM</li>
-                                        <li>Touch UI</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+
 
                         <!-- Slide 4 -->
-                        <li class="carousel-slide">
-                            <div class="project-slide-content" onclick="openModal('indus')" style="cursor: pointer;">
-                                <div class="project-slide-media skeleton-loading">
-                                    <img src="https://loremflickr.com/800/500/factory,robot" alt="Industrial Robot"
-                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
-                                </div>
-                                <div class="project-slide-info">
-                                    <h3>Robot Trong Nhà Máy</h3>
-                                    <p>Robot vận chuyển tự hành (AGV/AMR) trong môi trường công nghiệp. Hệ thống đảm bảo
-                                        an toàn tuyệt đối với cảm biến Lidar và tích hợp MES.</p>
-                                    <ul class="tech-tags">
-                                        <li>ROS2</li>
-                                        <li>Lidar Safety</li>
-                                        <li>Modbus</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+
 
                         <!-- Slide 5 -->
                         <li class="carousel-slide">
                             <div class="project-slide-content" onclick="openModal('patrol')" style="cursor: pointer;">
                                 <div class="project-slide-media skeleton-loading">
-                                    <img src="https://loremflickr.com/800/500/security,camera" alt="Patrol Robot"
+                                    <img src="assets/mecanum_robot.jpeg" alt="Patrol Robot"
                                         onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
                                 </div>
                                 <div class="project-slide-info">
-                                    <h3>Robot Tuần Tra Ngoài Trời</h3>
+                                    <h3>Mecanum Wheels Robot</h3>
                                     <p>Robot giám sát an ninh tự động, hoạt động bền bỉ trong điều kiện thời tiết khắc
                                         nghiệt. Sử dụng GPS RTK và AI để phát hiện xâm nhập.</p>
                                     <ul class="tech-tags">
@@ -311,13 +306,19 @@
         const nextButton = document.getElementById('nextBtn');
         const prevButton = document.getElementById('prevBtn');
         const carousel = document.getElementById('projectCarousel');
+        const slideCounter = document.getElementById('slideCounter');
 
         let currentSlideIndex = 0;
         let autoPlayInterval;
 
+        function updateCounter() {
+            slideCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
+        }
+
         function updateSlidePosition() {
             const amountToMove = -100 * currentSlideIndex;
             track.style.transform = 'translateX(' + amountToMove + '%)';
+            updateCounter();
         }
 
         function nextSlide() {
@@ -369,7 +370,7 @@
         const projectData = {
             charging: {
                 title: "Robot Về Trạm Sạc Tự Động",
-                company: "Dự án cá nhân | 2023",
+                company: "Công ty Cổ phần PhenikaaX | 2025",
                 media: "https://loremflickr.com/800/500/robot,lab",
                 description: "Phát triển hệ thống điều khiển robot tự động tìm đường về trạm sạc khi pin yếu. Sử dụng camera và xử lý ảnh để nhận diện marker trên trạm sạc, kết hợp thuật toán PID để điều khiển robot di chuyển chính xác.",
                 role: [
@@ -382,7 +383,7 @@
             },
             fleet: {
                 title: "Điều Phối Nhiều Robot",
-                company: "Công ty Cổ phần PhenikaaX | 2024",
+                company: "Công ty Cổ phần PhenikaaX | 2025",
                 media: "images/rmf-web+for+website.gif",
                 description: "Nghiên cứu và phát triển hệ thống framework điều phối và quản lý đội robot sử dụng ROS2. Hệ thống tích hợp điều khiển cửa tự động thông qua API và quản lý kho hàng tự động. Tối ưu hóa thuật toán lập lịch tác vụ, điều hướng Nav2 và điều phối đội hình robot, đảm bảo hiệu suất hoạt động cao và đồng bộ cho hệ thống đa robot trong môi trường thực tế.",
                 role: [
@@ -394,9 +395,9 @@
                 tech: ["ROS2", "Gazebo", "Nav2", "Zenoh Router", "VDA5050", "Multi-Robot Coordination", "Task Scheduling", "Fleet Control Systems"]
             },
             service: {
-                title: "Robot Dịch Vụ",
-                company: "Dự án nghiên cứu | 2024",
-                media: "https://loremflickr.com/800/500/robot,waiter",
+                title: "Robot Giao Hàng Trong Bệnh Viện",
+                company: "Công ty Cổ phần PhenikaaX | 2025",
+                media: "assets/medical_delivery_robot.jpg",
                 description: "Phát triển robot dịch vụ tự động phục vụ trong môi trường nhà hàng, khách sạn. Robot có khả năng di chuyển tự động, tránh vật cản và tương tác với khách hàng thông qua giao diện cảm ứng.",
                 role: [
                     "Phát triển hệ thống điều hướng tự động cho robot",
@@ -407,10 +408,10 @@
                 tech: ["ROS2", "Navigation", "SLAM", "Touch Interface", "Sensor Fusion"]
             },
             indus: {
-                title: "Robot Trong Nhà Máy",
-                company: "Dự án nghiên cứu | 2024",
-                media: "https://loremflickr.com/800/500/factory,robot",
-                description: "Nghiên cứu và phát triển robot vận chuyển tự hành (AGV/AMR) hoạt động trong môi trường nhà máy công nghiệp. Hệ thống đảm bảo an toàn tuyệt đối với cảm biến Lidar và tích hợp sâu với hệ thống quản lý sản xuất (MES).",
+                title: "Robot AMR Chở Hàng Trong Nhà Máy",
+                company: "Công ty Cổ phần PhenikaaX | 2025",
+                media: "assets/heavy_load_amr.jpg",
+                description: "Nghiên cứu và phát triển robot vận chuyển tự hành (AMR) hoạt động trong môi trường nhà máy công nghiệp. Hệ thống đảm bảo an toàn tuyệt đối với cảm biến Lidar và tích hợp sâu với hệ thống quản lý sản xuất (MES).",
                 role: [
                     "Lập trình hệ thống định vị và dẫn đường sử dụng Lidar SLAM",
                     "Thiết lập các vùng an toàn và cơ chế dừng khẩn cấp (Safety PLC)",
@@ -420,9 +421,9 @@
                 tech: ["ROS2", "Lidar SLAM", "Safety PLC", "Modbus TCP", "Industrial Automation", "MES Integration"]
             },
             patrol: {
-                title: "Robot Tuần Tra Ngoài Trời",
-                company: "Dự án nghiên cứu | 2024",
-                media: "https://loremflickr.com/800/500/security,camera",
+                title: "Mecanum Wheels Robot",
+                company: "WSR LAB | 2024",
+                media: "assets/mecanum_robot.jpeg",
                 description: "Robot tuần tra an ninh tự động hoạt động trong môi trường ngoài trời rộng lớn. Sử dụng GPS RTK để định vị chính xác và AI để phát hiện hành vi xâm nhập trái phép.",
                 role: [
                     "Tích hợp GPS RTK và IMU cho định vị chính xác ngoài trời",
