@@ -813,6 +813,8 @@ a {
     position: absolute;
     top: 40px;
     right: 20px;
+    left: auto;
+    transform: none;
     background: rgba(15, 23, 42, 0.8);
     color: var(--primary-color);
     padding: 5px 15px;
