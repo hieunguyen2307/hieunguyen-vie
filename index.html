@@ -1,1008 +1,278 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Minh Hiếu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Nguyễn Minh Hiếu | Robotics Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* --- THIẾT LẬP CƠ BẢN --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%; /* Quan trọng để chia cột full màn hình */
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* --- BỐ CỤC CHÍNH (LAYOUT) --- */
-        .main-container {
-            display: flex;
-            height: 100vh; /* Chiều cao bằng 100% màn hình */
-            overflow: hidden; /* Ẩn thanh cuộn của body */
-        }
-
-        /* --- CỘT BÊN TRÁI (SIDEBAR) --- */
-        .sidebar {
-            /* Độ rộng cố định cho cột trái */
-            width: 420px;
-            flex-shrink: 0; /* Ngăn không cho cột này bị co lại */
-
-            /* --- THIẾT LẬP NỀN GRADIENT ĐẸP MẮT --- */
-            background: linear-gradient(135deg, #131314 0%, #333135 100%);
-
-            color: #ffffff; /* Màu chữ trắng */
-            padding: 60px 30px;
-            text-align: center;
-            overflow-y: auto; /* Cho phép cuộn riêng cột trái nếu nội dung quá dài */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Căn giữa nội dung theo chiều dọc */
-            align-items: center;
-            /* Ẩn thanh trượt */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-
-        .sidebar::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        .profile-img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%; /* Làm tròn ảnh */
-            object-fit: cover;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .sidebar h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .sidebar .job-title {
-            font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .sidebar-info {
-            margin-top: 30px;
-            font-weight: 300;
-            font-size: 0.95rem;
-            width: 100%;
-        }
-
-        .sidebar-info > div {
-            margin-bottom: 30px;
-        }
-
-        .sidebar-info p {
-            margin-bottom: 15px;
-        }
-
-        .sidebar-info strong {
-            display: block;
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #fff;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 10px;
-        }
-
-        .sidebar-info i {
-            width: 20px;
-            margin-right: 10px;
-            text-align: center;
-            opacity: 1;
-            color: #ff6b35; /* Cam đỏ */
-            font-size: 1rem;
-        }
-
-        .university-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #ff6b35; /* Cam đỏ */
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .education-details {
-            opacity: 0.9;
-            font-size: 0.92rem;
-            line-height: 1.9;
-        }
-
-        .sidebar-info a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .sidebar-info a:hover {
-            opacity: 0.7;
-            text-decoration: underline;
-        }
-
-
-        /* --- CỘT BÊN PHẢI (CONTENT) --- */
-        .content-area {
-            flex: 1; /* Chiếm toàn bộ không gian còn lại */
-            background-color: #f8f9fa; /* Màu nền sáng cho khu vực nội dung */
-            padding: 50px;
-            overflow-y: auto; /* QUAN TRỌNG: Cho phép cuộn khu vực này */
-            /* Ẩn thanh trượt */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-
-        .content-area::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        /* Tiêu đề section */
-        .section-heading {
-            font-size: 1.8rem;
-            color: #1a1a1d; /* Màu tối đậm */
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #ff6b35; /* Cam đỏ nổi bật */
-            display: inline-block;
-            font-weight: 700;
-        }
-
-        /* --- HỆ THỐNG GRID CHO DỰ ÁN (Giống bài trước) --- */
-        .project-grid {
-            display: grid;
-            /* Tự động chia cột, tối thiểu 300px mỗi cột */
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px; /* Khoảng cách giữa các thẻ */
-        }
-
-        /* Thẻ dự án */
-        .project-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Badge cho dự án */
-        .project-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-badge i {
-            font-size: 0.7rem;
-        }
-
-        .project-badge.personal {
-            color: #10b981;
-            opacity: 0.85;
-        }
-
-        .project-badge.personal i {
-            color: #10b981;
-        }
-
-        .project-badge.company {
-            color: #3498db;
-        }
-
-        .project-badge.company i {
-            color: #3498db;
-        }
-
-        /* Vùng chứa ảnh/GIF */
-        .project-media {
-            height: 220px; /* Chiều cao cố định cho vùng ảnh */
-            overflow: hidden;
-            background-color: #e9ecef;
-            position: relative;
-        }
-
-        .project-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
-            transition: transform 0.5s;
-        }
-        
-        .project-card:hover .project-media img {
-            transform: scale(1.05);
-        }
-
-        /* Thông tin dự án */
-        .project-details {
-            padding: 25px;
-        }
-
-        .project-details h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #1a1a1d; /* Màu tối đậm */
-            font-weight: 600;
-        }
-
-        .project-details p {
-            color: #4a4a4a; /* Xám đậm dễ đọc */
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        /* Danh sách công nghệ (Tags) */
-        .tech-tags {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-tags li {
-            background-color: #fff5f0; /* Cam nhạt */
-            color: #ff6b35; /* Cam đỏ */
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid #ffe0d6;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin-bottom: 50px;
-            color: #4a4a4a; /* Xám đậm */
-        }
-
-        .info-section {
-            background: #fff;
-            padding: 25px 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border-left: 5px solid #ff6b35; /* Cam đỏ */
-        }
-
-        .info-section h3 {
-            color: #1a1a1d; /* Màu tối đậm */
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-
-        .info-section h3 i {
-            color: #ff6b35; /* Icon cam đỏ */
-        }
-
-        .info-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .info-item h4 {
-            color: #1a1a1d; /* Màu tối đậm */
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .info-item .company {
-            color: #4a4a4a; /* Xám đậm */
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .info-item .date {
-            color: #999;
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* --- TIMELINE --- */
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        /* Bỏ đường thẳng nối - chỉ giữ lại các chấm */
-        .timeline::before {
-            display: none; /* Ẩn đường thẳng */
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            padding-bottom: 0;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            /* Căn chỉnh chính xác */
-            left: -33px;
-            top: 3px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #9ba1a7;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 2px #9ba1a7;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .timeline-item.current .timeline-dot {
-            background: #ff6b35;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px #ff6b35;
-            animation: pulse-dot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 3px #ff6b35, 0 0 0 0 rgba(255, 107, 53, 0.7);
-            }
-            50% {
-                transform: scale(1.15);
-                box-shadow: 0 0 0 3px #ff6b35, 0 0 0 10px rgba(255, 107, 53, 0);
-            }
-        }
-
-        .timeline-content {
-            padding-left: 5px;
-        }
-
-        .timeline-content h4 {
-            color: #1a1a1d; /* Màu tối đậm */
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            margin-top: 0;
-            font-weight: 600;
-        }
-
-        .timeline-item.current .timeline-content h4 {
-            color: #ff6b35; /* Cam đỏ cho vị trí hiện tại */
-            font-weight: 700;
-        }
-
-        .timeline-content .company {
-            color: #4a4a4a; /* Xám đậm */
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .timeline-content .date {
-            color: #888; /* Xám nhạt hơn */
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        .timeline-item.current .timeline-content .date {
-            color: #ff6b35; /* Cam đỏ cho vị trí hiện tại */
-            font-weight: 600;
-        }
-
-        /* --- SKILLS GRID --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .skill-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #ff6b35; /* Cam đỏ */
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.15);
-            border-left-color: #ff8c5a;
-        }
-
-        .skill-item i {
-            font-size: 2rem;
-            color: #ff6b35; /* Icon cam đỏ */
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .skill-item strong {
-            display: block;
-            color: #1a1a1d; /* Màu tối đậm */
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .skill-item p {
-            color: #4a4a4a; /* Xám đậm */
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* --- MODAL CHI TIẾT DỰ ÁN --- */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 420px; /* Bắt đầu sau sidebar */
-            width: calc(100% - 420px); /* Chỉ chiếm phần bên phải */
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: background-color 0.6s ease; /* Chậm hơn: 0.6s */
-            overflow-y: auto;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            background: #fff;
-            border-radius: 15px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            /* Ẩn thanh trượt */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-            /* Animation mượt mà - chậm hơn và mượt hơn */
-            opacity: 0;
-            transform: scale(0.85) translateY(50px);
-            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); /* Chậm hơn: 0.7s, hiệu ứng bounce mượt */
-        }
-
-        .modal-overlay.active .modal-content {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-
-        .modal-content::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        /* ========================================
-           🎨 CHỈNH MÀU POPUP TẠI ĐÂY
-           ========================================
-           Thay đổi 3 màu trong gradient:
-           - Màu 1 (0%): #ffb89d (cam nhạt nhất)
-           - Màu 2 (50%): #ffa589 (cam trung bình)
-           - Màu 3 (100%): #ff9575 (cam đậm nhất)
-
-           Ví dụ màu khác:
-           - Xanh dương nhạt: #a8d8ea, #7fc8e8, #5ab9ea
-           - Xanh lá nhạt: #b8e6d5, #95dac1, #72cead
-           - Tím nhạt: #d4b5f7, #c49ff5, #b489f3
-        ======================================== */
-        .modal-header {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(135deg, #ff6b35 0%, #ff6b35 50%, #ff6b35 100%);
-            color: #fff;
-            padding: 30px;
-            border-radius: 15px 15px 0 0;
-            z-index: 10;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .modal-header .company-date {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 40px;
-        }
-
-        .modal-media {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-section {
-            margin-bottom: 30px;
-        }
-
-        .modal-section h3 {
-            color: #1a1a1d; /* Màu tối đậm */
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #ff6b35; /* Cam đỏ */
-            font-weight: 700;
-        }
-
-        .modal-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .modal-section ul li {
-            padding: 10px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #4a4a4a; /* Xám đậm */
-            line-height: 1.8;
-        }
-
-        .modal-section ul li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #ff6b35; /* Cam đỏ */
-            font-weight: bold;
-        }
-
-        /* Tech tags trong modal */
-        .modal-tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-            padding-left: 0 !important;
-        }
-
-        .modal-tech-tags li {
-            background-color: #fff5f0; /* Cam nhạt */
-            color: #ff6b35; /* Cam đỏ */
-            padding: 5px 12px !important;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            list-style: none !important;
-            border: 1px solid #ffe0d6;
-            transition: all 0.3s ease;
-        }
-
-        .modal-tech-tags li:hover {
-            background-color: #bbdefb;
-            transform: translateY(-2px);
-        }
-
-        .modal-tech-tags li::before {
-            content: none !important;
-            display: none !important;
-        }
-
-        .project-card {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.4s ease;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .project-card:hover .project-overlay {
-            background: rgba(0, 0, 0, 0.6);
-            opacity: 1;
-        }
-
-        .project-overlay-text {
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay-text {
-            transform: scale(1);
-        }
-
-        /* --- CUSTOM SCROLLBAR --- */
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 10px;
-            transition: background 0.3s;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb {
-            background: #667eea;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background: #5568d3;
-        }
-
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #c1c1c1 #f1f1f1;
-        }
-
-        .modal-content {
-            scrollbar-color: #667eea #f1f1f1;
-        }
-
-
-
-        /* --- RESPONSIVE (Cho điện thoại) --- */
-        @media (max-width: 900px) {
-            .main-container {
-                flex-direction: column; /* Xếp chồng lên nhau trên màn hình nhỏ */
-                height: auto; /* Chiều cao tự động */
-            }
-
-            .sidebar {
-                width: 100%; /* Full chiều rộng */
-                padding: 60px 20px;
-                height: auto;
-            }
-            
-            .content-area {
-                height: auto; /* Cho phép body cuộn tự nhiên */
-                padding: 30px 20px;
-                overflow-y: visible;
-            }
-            
-            .project-grid {
-                 grid-template-columns: 1fr; /* 1 cột duy nhất trên mobile */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
     <div class="main-container">
-        
+
         <aside class="sidebar">
-            <img src="assets/hieunguyen.jpg" alt="Ảnh đại diện" class="profile-img">
-            
+            <img src="assets/hieunguyen.jpg" alt="Nguyễn Minh Hiếu" class="profile-img">
+
             <h1>Nguyễn Minh Hiếu</h1>
             <p class="job-title">Kỹ Sư Robotic</p>
 
             <div class="sidebar-info">
-                <div>
+                <div class="info-group">
                     <strong>Học Vấn</strong>
-                    <p>
-                        <span class="university-name">Đại học Bách Khoa Hà Nội</span><br>
-                        <span class="education-details">
-                            Trường Điện - Điện tử<br>
-                            Kỹ thuật Điều khiển - Tự động hóa<br>
-                            9/2019 - 4/2024<br>
-                            Xếp loại: Giỏi
-                        </span>
-                    </p>
+                    <div class="info-row">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <span style="color: #fff; font-weight: 600;">Đại học Bách Khoa Hà Nội</span><br>
+                            <span style="font-size: 0.9rem; opacity: 0.8;">Kỹ thuật Điều khiển - Tự động hóa</span><br>
+                            <span style="font-size: 0.85rem; opacity: 0.6;">9/2019 - 4/2024 | Xếp loại: Giỏi</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <strong>Thông Tin Cá Nhân</strong>
-                    <p>
-                        <i class="fas fa-birthday-cake"></i> 2001<br>
-                        <i class="fas fa-envelope"></i> minhhieunguyen23tnh@gmail.com<br>                        <i class="fas fa-phone"></i> 0919 309 920<br>
-                        <i class="fab fa-github"></i> <a href="https://github.com/hieunguyen2307" target="_blank">github.com/hieunguyen2307</a><br>
-                        <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/hieunguyen2307" target="_blank">linkedin.com/in/hieunguyen2307</a><br>
+
+                <div class="info-group">
+                    <strong>Liên Hệ</strong>
+                    <div class="info-row">
+                        <i class="fas fa-birthday-cake"></i> 2001
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:minhhieunguyen23tnh@gmail.com">minhhieunguyen23tnh@gmail.com</a>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:0919309920">0919 309 920</a>
+                    </div>
+                    <div class="info-row">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/hieunguyen2307" target="_blank">github.com/hieunguyen2307</a>
+                    </div>
+                    <div class="info-row">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/hieunguyen2307"
+                            target="_blank">linkedin.com/in/hieunguyen2307</a>
+                    </div>
+                    <div class="info-row">
                         <i class="fas fa-map-marker-alt"></i> Phương Liệt, Hà Nội
-                    </p>
+                    </div>
                 </div>
             </div>
         </aside>
 
-
         <main class="content-area">
-            
-            <h2 class="section-heading">Giới Thiệu</h2>
-            <p class="intro-text">
-                Tôi có hơn 2 năm kinh nghiệm trong phát triển và triển khai các hệ thống robot dựa trên ROS2. Có nền tảng vững chắc về lập trình C++ và Python, cùng với khả năng thiết kế và tối ưu hóa các thuật toán điều khiển và cảm biến. 
-                Đam mê công nghệ mới và có khả năng làm việc hiệu quả trong các dự án nghiên cứu và phát triển.
-            </p>
 
-            <div class="info-section">
-                <h3><i class="fas fa-briefcase"></i> Kinh Nghiệm Làm Việc</h3>
-                <div class="timeline">
-                    <div class="timeline-item current">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Kỹ Sư Robotic</h4>
-                            <div class="company">Công ty Cổ phần PhenikaaX</div>
-                            <div class="date">8/2024 - nay</div>
+            <section class="fade-in-up">
+                <h2 class="section-heading">Giới Thiệu</h2>
+                <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 40px; max-width: 800px;">
+                    Kỹ sư Robotic với hơn 2 năm kinh nghiệm chuyên sâu trong thiết kế, phát triển và triển khai các hệ thống robot tự động phức tạp sử dụng <strong>ROS2</strong>.
+                    Có thành tích triển khai thành công hệ thống điều phối đa robot (Fleet Management) trong môi trường sản xuất thực tế,
+                    tích hợp các giải pháp SLAM, Navigation và Computer Vision để tối ưu hóa hiệu suất hoạt động.
+                    Thành thạo <strong>C++</strong> và <strong>Python</strong> trong phát triển các module điều khiển thời gian thực,
+                    xử lý cảm biến đa nguồn và tối ưu hóa thuật toán.
+                    Có kinh nghiệm làm việc với các tiêu chuẩn công nghiệp (VDA5050, ISO Safety) và công nghệ DevOps (Docker, CI/CD)
+                    để đảm bảo tính ổn định và khả năng mở rộng của hệ thống.
+                </p>
+            </section>
+
+            <section class="fade-in-up delay-100">
+                <div class="glass-card">
+                    <h3><i class="fas fa-briefcase"></i> Kinh Nghiệm Làm Việc</h3>
+                    <div class="timeline">
+                        <div class="timeline-item current">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Kỹ Sư Robotic</h4>
+                                <div class="company">Công ty Cổ phần PhenikaaX</div>
+                                <div class="date">8/2024 - nay</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Sinh Viên Nghiên Cứu</h4>
+                                <div class="company">WSR Lab</div>
+                                <div class="date">1/2023 - 4/2024</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Sinh Viên Nghiên Cứu</h4>
-                            <div class="company">WSR Lab</div>
-                            <div class="date">1/2023 - 4/2024</div>
+                </div>
+            </section>
+
+            <section class="fade-in-up delay-200">
+                <div class="glass-card">
+                    <h3><i class="fas fa-certificate"></i> Chứng Chỉ & Đào Tạo</h3>
+                    <div class="timeline-item" style="margin-bottom: 0;">
+                        <div class="timeline-content" style="padding-left: 0;">
+                            <h4>ROS Developer Learning Path 2.0</h4>
+                            <div class="company">Robocademy</div>
+                            <div class="date">4/2024 - 7/2024</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="info-section">
-                <h3><i class="fas fa-certificate"></i> Chứng Chỉ & Đào Tạo</h3>
-                <div class="info-item">
-                    <h4>ROS Developer Learning Path 2.0</h4>
-                    <div class="company">Robocademy</div>
-                    <div class="date">4/2024 - 7/2024</div>
-                </div>
-            </div>
-
-            <div class="info-section">
-                <h3><i class="fas fa-code"></i> Kỹ Năng Chuyên Môn</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fas fa-robot"></i>
-                        <strong>ROS/ROS2</strong>
-                        <p>Thành thạo cả ROS 1 và ROS 2. Sử dụng thành thạo các công cụ ROS như RViz, Gazebo, rqt và rosbag.</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-laptop-code"></i>
-                        <strong>Lập Trình</strong>
-                        <p>Kỹ năng chuyên sâu về Python và C++. Phát triển server Python mạnh mẽ cho tích hợp robot.</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <strong>Hệ Thống Đa Robot</strong>
-                        <p>Kinh nghiệm với hệ thống đa robot, SLAM và phát triển các gói ROS tùy chỉnh. Điều phối nhiều robot sử dụng RMF.</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-cogs"></i>
-                        <strong>Điều Khiển Robot</strong>
-                        <p>Am hiểu về động học, động lực học robot và các thuật toán điều khiển. Ứng dụng Groot trong Nav2 cho behavior tree.</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-docker"></i>
-                        <strong>DevOps</strong>
-                        <p>Thành thạo Docker, Docker Swarm và Docker Compose cho triển khai ROS. Sử dụng Git và CI/CD pipeline hiệu quả.</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <strong>Tiêu Chuẩn An Toàn</strong>
-                        <p>Hiểu biết về các tiêu chuẩn an toàn và công nghiệp cho robot, như tiêu chuẩn ISO cho hệ thống tự động.</p>
+            <section class="fade-in-up delay-300">
+                <div class="glass-card">
+                    <h3><i class="fas fa-code"></i> Kỹ Năng Chuyên Môn</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-robot"></i>
+                            <strong>ROS/ROS2</strong>
+                            <p>Thành thạo ROS 1 & ROS 2. Sử dụng RViz, Gazebo, rqt, rosbag.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <strong>Lập Trình</strong>
+                            <p>Python, C++. Phát triển server Python cho robot.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <strong>Hệ Thống Đa Robot</strong>
+                            <p>SLAM, RMF, điều phối nhiều robot.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cogs"></i>
+                            <strong>Điều Khiển</strong>
+                            <p>Động học, động lực học, Nav2, Behavior Tree.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-docker"></i>
+                            <strong>DevOps</strong>
+                            <p>Docker, Swarm, Compose, Git, CI/CD.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <strong>Tiêu Chuẩn</strong>
+                            <p>ISO cho hệ thống tự động, an toàn robot.</p>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <h2 class="section-heading fade-in-up delay-300" style="margin-top: 50px;">Dự Án Nổi Bật</h2>
+
+            <!-- PROJECT CAROUSEL -->
+            <div class="project-carousel fade-in-up delay-300" id="projectCarousel">
+                <button class="carousel-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="track">
+
+                        <!-- Slide 1 -->
+                        <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('charging')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="https://loremflickr.com/800/500/robot,lab" alt="Charging Robot"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Robot Về Trạm Sạc Tự Động</h3>
+                                    <p>Hệ thống điều khiển robot tự động tìm đường về trạm sạc khi pin yếu sử dụng
+                                        camera và xử lý ảnh. Tích hợp thuật toán PID để điều khiển robot di chuyển chính
+                                        xác.</p>
+                                    <ul class="tech-tags">
+                                        <li>C++</li>
+                                        <li>PID</li>
+                                        <li>OpenCV</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 2 -->
+                        <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('fleet')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="images/rmf-web+for+website.gif" alt="Fleet Management"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Điều Phối Nhiều Robot</h3>
+                                    <p>Hệ thống quản lý đội robot sử dụng ROS2, tích hợp điều khiển cửa và quản lý kho.
+                                        Tối ưu hóa thuật toán lập lịch tác vụ và điều hướng Nav2.</p>
+                                    <ul class="tech-tags">
+                                        <li>ROS2</li>
+                                        <li>Nav2</li>
+                                        <li>Fleet Control</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 3 -->
+                        <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('service')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="https://loremflickr.com/800/500/robot,waiter" alt="Service Robot"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Robot Dịch Vụ</h3>
+                                    <p>Robot phục vụ tự động trong nhà hàng, khách sạn với khả năng di chuyển và tương
+                                        tác. Tích hợp cảm biến tránh vật cản và lập bản đồ SLAM.</p>
+                                    <ul class="tech-tags">
+                                        <li>ROS2</li>
+                                        <li>SLAM</li>
+                                        <li>Touch UI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 4 -->
+                        <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('indus')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="https://loremflickr.com/800/500/factory,robot" alt="Industrial Robot"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Robot Trong Nhà Máy</h3>
+                                    <p>Robot vận chuyển tự hành (AGV/AMR) trong môi trường công nghiệp. Hệ thống đảm bảo
+                                        an toàn tuyệt đối với cảm biến Lidar và tích hợp MES.</p>
+                                    <ul class="tech-tags">
+                                        <li>ROS2</li>
+                                        <li>Lidar Safety</li>
+                                        <li>Modbus</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Slide 5 -->
+                        <li class="carousel-slide">
+                            <div class="project-slide-content" onclick="openModal('patrol')" style="cursor: pointer;">
+                                <div class="project-slide-media skeleton-loading">
+                                    <img src="https://loremflickr.com/800/500/security,camera" alt="Patrol Robot"
+                                        onload="this.parentElement.classList.remove('skeleton-loading'); this.style.opacity='1'">
+                                </div>
+                                <div class="project-slide-info">
+                                    <h3>Robot Tuần Tra Ngoài Trời</h3>
+                                    <p>Robot giám sát an ninh tự động, hoạt động bền bỉ trong điều kiện thời tiết khắc
+                                        nghiệt. Sử dụng GPS RTK và AI để phát hiện xâm nhập.</p>
+                                    <ul class="tech-tags">
+                                        <li>GPS/RTK</li>
+                                        <li>Computer Vision</li>
+                                        <li>4G/5G</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <button class="carousel-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
             </div>
 
-            <h2 class="section-heading" style="margin-top: 30px;">Dự Án Nổi Bật</h2>
-            
-            <div class="project-grid">
-
-                <article class="project-card" onclick="openModal('charging')">
-                    <div class="project-overlay">
-                        <div class="project-overlay-text">Chi tiết</div>
-                    </div>
-                    <div class="project-badge personal">
-                        <i class="fas fa-circle"></i>
-                        cá nhân
-                    </div>
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250?text=Ảnh+Dự+Án+1" alt="Demo Dự Án 1">
-                    </div>
-                    <div class="project-details">
-                        <h3>Robot Về Trạm Sạc Tự Động</h3>
-                        <p>Mô tả ngắn gọn về dự án. Nó giải quyết vấn đề gì và bạn đã thực hiện nó như thế nào. Khu vực này sẽ cuộn khi bạn thêm nhiều dự án hơn.</p>
-                        <ul class="tech-tags">
-                            <li>C++</li>
-                            <li>PID</li>
-                            <li>OpenCV</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-card" onclick="openModal('fleet')">
-                    <div class="project-overlay">
-                        <div class="project-overlay-text">Chi tiết</div>
-                    </div>
-                    <div class="project-badge company">
-                        <i class="fas fa-circle"></i>
-                        công ty
-                    </div>
-                    <div class="project-media">
-                        <img src="images/rmf-web+for+website.gif" alt="Demo Dự Án 2">
-                    </div>
-                    <div class="project-details">
-                        <h3>Điều Phối Nhiều Robot</h3>
-                        <p>Nghiên cứu và phát triển hệ thống quản lý đội robot sử dụng ROS2, tích hợp điều khiển cửa tự động và quản lý kho. Tối ưu hóa thuật toán lập lịch tác vụ, điều hướng và điều phối đội hình robot, đảm bảo hiệu suất hoạt động cao cho hệ thống đa robot.</p>
-                        <ul class="tech-tags">
-                            <li>ROS2</li>
-                            <li>Gazebo</li>
-                            <li>Nav2</li>
-                            <li>Zenoh Router</li>
-                            <li>VDA5050</li>
-                            <li>Fleet Control</li>
-                        </ul>
-                    </div>
-                </article>
-
-                 <article class="project-card" onclick="openModal('service')">
-                    <div class="project-overlay">
-                        <div class="project-overlay-text">Chi tiết</div>
-                    </div>
-                    <div class="project-badge company">
-                        <i class="fas fa-circle"></i>
-                        công ty
-                    </div>
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250?text=Project+Screenshot" alt="Demo Dự Án 3">
-                    </div>
-                    <div class="project-details">
-                        <h3>Robot Dịch Vụ</h3>
-                        <p>Một ứng dụng To-Do list đơn giản nhưng hiệu quả, sử dụng LocalStorage để lưu dữ liệu.</p>
-                        <ul class="tech-tags">
-                            <li>HTML/CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-card" onclick="openModal('indus')">
-                    <div class="project-overlay">
-                        <div class="project-overlay-text">Chi tiết</div>
-                    </div>
-                    <div class="project-badge company">
-                        <i class="fas fa-circle"></i>
-                        công ty
-                    </div>
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250?text=Dự+Án+Mới" alt="Dự án mới">
-                    </div>
-                    <div class="project-details">
-                        <h3>Robot Trong Nhà Máy</h3>
-                        <p>Chỗ trống để bạn điền thêm thông tin.</p>
-                        <ul class="tech-tags">
-                            <li>Công nghệ A</li>
-                            <li>Công nghệ B</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="project-card" onclick="openModal('patrol')">
-                    <div class="project-overlay">
-                        <div class="project-overlay-text">Chi tiết</div>
-                    </div>
-                    <div class="project-badge personal">
-                        <i class="fas fa-circle"></i>
-                        cá nhân
-                    </div>
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250?text=Dự+Án+Mới" alt="Dự án mới">
-                    </div>
-                    <div class="project-details">
-                        <h3>Robot Tuần Tra Ngoài Trời</h3>
-                        <p>Chỗ trống để bạn điền thêm thông tin.</p>
-                        <ul class="tech-tags">
-                            <li>Công nghệ A</li>
-                            <li>Công nghệ B</li>
-                        </ul>
-                    </div>
-                </article>
-
-            </div> <br><br><br>
+            <br><br><br>
         </main>
     </div>
 
@@ -1016,7 +286,7 @@
             </div>
             <div class="modal-body">
                 <img id="modalMedia" class="modal-media" src="" alt="Demo dự án">
-                
+
                 <div class="modal-section">
                     <h3>Mô Tả</h3>
                     <p id="modalDescription">Mô tả chi tiết dự án...</p>
@@ -1036,11 +306,71 @@
     </div>
 
     <script>
+        const track = document.getElementById('track');
+        const slides = Array.from(track.children);
+        const nextButton = document.getElementById('nextBtn');
+        const prevButton = document.getElementById('prevBtn');
+        const carousel = document.getElementById('projectCarousel');
+
+        let currentSlideIndex = 0;
+        let autoPlayInterval;
+
+        function updateSlidePosition() {
+            const amountToMove = -100 * currentSlideIndex;
+            track.style.transform = 'translateX(' + amountToMove + '%)';
+        }
+
+        function nextSlide() {
+            currentSlideIndex++;
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            }
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            currentSlideIndex--;
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            updateSlidePosition();
+        }
+
+        nextButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+        });
+
+        prevButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+        });
+
+        // Auto play logic
+        function startAutoPlay() {
+            // Clear existing to avoid race conditions/multiple intervals
+            stopAutoPlay();
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        // Start initially - but wait for window load to ensure layout is stable?
+        // Actually, starting immediately is fine as long as CSS handles the layout.
+        startAutoPlay();
+
+        // --- MODAL LOGIC ---
         const projectData = {
             charging: {
                 title: "Robot Về Trạm Sạc Tự Động",
                 company: "Dự án cá nhân | 2023",
-                media: "https://via.placeholder.com/800x450?text=Charging+Robot+Demo",
+                media: "https://loremflickr.com/800/500/robot,lab",
                 description: "Phát triển hệ thống điều khiển robot tự động tìm đường về trạm sạc khi pin yếu. Sử dụng camera và xử lý ảnh để nhận diện marker trên trạm sạc, kết hợp thuật toán PID để điều khiển robot di chuyển chính xác.",
                 role: [
                     "Thiết kế và lập trình thuật toán điều khiển PID cho robot",
@@ -1066,7 +396,7 @@
             service: {
                 title: "Robot Dịch Vụ",
                 company: "Dự án nghiên cứu | 2024",
-                media: "https://via.placeholder.com/800x450?text=Service+Robot+Demo",
+                media: "https://loremflickr.com/800/500/robot,waiter",
                 description: "Phát triển robot dịch vụ tự động phục vụ trong môi trường nhà hàng, khách sạn. Robot có khả năng di chuyển tự động, tránh vật cản và tương tác với khách hàng thông qua giao diện cảm ứng.",
                 role: [
                     "Phát triển hệ thống điều hướng tự động cho robot",
@@ -1079,42 +409,42 @@
             indus: {
                 title: "Robot Trong Nhà Máy",
                 company: "Dự án nghiên cứu | 2024",
-                media: "https://via.placeholder.com/800x450?text=Patrol+Robot+Demo",
-                description: "Nghiên cứu và phát triển robot tuần tra tự động cho môi trường ngoài trời. Robot có khả năng di chuyển trên địa hình phức tạp, nhận diện đối tượng và cảnh báo bất thường thông qua camera AI.",
+                media: "https://loremflickr.com/800/500/factory,robot",
+                description: "Nghiên cứu và phát triển robot vận chuyển tự hành (AGV/AMR) hoạt động trong môi trường nhà máy công nghiệp. Hệ thống đảm bảo an toàn tuyệt đối với cảm biến Lidar và tích hợp sâu với hệ thống quản lý sản xuất (MES).",
                 role: [
-                    "Thiết kế hệ thống di chuyển trên địa hình ngoài trời",
-                    "Phát triển module nhận diện đối tượng bằng AI",
-                    "Tích hợp GPS và cảm biến IMU cho định vị chính xác",
-                    "Xây dựng hệ thống cảnh báo và báo cáo tự động"
+                    "Lập trình hệ thống định vị và dẫn đường sử dụng Lidar SLAM",
+                    "Thiết lập các vùng an toàn và cơ chế dừng khẩn cấp (Safety PLC)",
+                    "Giao tiếp với hệ thống MES qua giao thức Modbus/TCP",
+                    "Tối ưu hóa đường đi để tránh tắc nghẽn trong nhà xưởng"
                 ],
-                tech: ["ROS2", "Computer Vision", "AI/ML", "GPS", "IMU", "Outdoor Navigation", "Object Detection"]
+                tech: ["ROS2", "Lidar SLAM", "Safety PLC", "Modbus TCP", "Industrial Automation", "MES Integration"]
             },
             patrol: {
                 title: "Robot Tuần Tra Ngoài Trời",
                 company: "Dự án nghiên cứu | 2024",
-                media: "https://via.placeholder.com/800x450?text=Patrol+Robot+Demo",
-                description: "Nghiên cứu và phát triển robot tuần tra tự động cho môi trường ngoài trời. Robot có khả năng di chuyển trên địa hình phức tạp, nhận diện đối tượng và cảnh báo bất thường thông qua camera AI.",
+                media: "https://loremflickr.com/800/500/security,camera",
+                description: "Robot tuần tra an ninh tự động hoạt động trong môi trường ngoài trời rộng lớn. Sử dụng GPS RTK để định vị chính xác và AI để phát hiện hành vi xâm nhập trái phép.",
                 role: [
-                    "Thiết kế hệ thống di chuyển trên địa hình ngoài trời",
-                    "Phát triển module nhận diện đối tượng bằng AI",
-                    "Tích hợp GPS và cảm biến IMU cho định vị chính xác",
-                    "Xây dựng hệ thống cảnh báo và báo cáo tự động"
+                    "Tích hợp GPS RTK và IMU cho định vị chính xác ngoài trời",
+                    "Huấn luyện mô hình AI (YOLO) để nhận diện người và phương tiện",
+                    "Thiết kế cơ chế di chuyển trên địa hình gồ ghề",
+                    "Truyền hình ảnh video thời gian thực qua mạng 4G/5G về trung tâm"
                 ],
-                tech: ["ROS2", "Computer Vision", "AI/ML", "GPS", "IMU", "Outdoor Navigation", "Object Detection"]
+                tech: ["ROS2", "GPS RTK", "Computer Vision", "YOLOv8", "4G/5G Telemetry", "Outdoor Navigation"]
             }
         };
 
         function openModal(projectId) {
             const modal = document.getElementById('projectModal');
             const data = projectData[projectId];
-            
+
             if (!data) return;
 
             document.getElementById('modalTitle').textContent = data.title;
             document.getElementById('modalCompany').textContent = data.company;
             document.getElementById('modalMedia').src = data.media;
             document.getElementById('modalDescription').textContent = data.description;
-            
+
             const roleList = document.getElementById('modalRole');
             roleList.innerHTML = '';
             data.role.forEach(item => {
@@ -1122,7 +452,7 @@
                 li.textContent = item;
                 roleList.appendChild(li);
             });
-            
+
             const techList = document.getElementById('modalTech');
             techList.innerHTML = '';
             data.tech.forEach(item => {
@@ -1130,7 +460,7 @@
                 li.textContent = item;
                 techList.appendChild(li);
             });
-            
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1143,12 +473,12 @@
             }
         }
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
     </script>
-
 </body>
+
 </html>
